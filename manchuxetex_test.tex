@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage{manchuxetex}
+\newfontfamily\manchufont{Mongolian Baiti}
+\newcommand{\text}{bithe sara niyalma sarkU niyalma gemu ulhimbi. }
+\begin{document}
+\newcommand*{\midraiseboxA}{%
+  \raisebox{1ex-.5\height}%
+}
+\noindent
+x\raisebox{-.5ex}[\ht\strutbox]{\textmanchu{\text}}x
+\textmanchu[trans]{\text}
+
+\begin{manchu}[]
+{\text}
+\end{manchu}
+
+\noindent
+\begin{vmanchu}[5em]
+\text
+\end{vmanchu}
+\end{document}

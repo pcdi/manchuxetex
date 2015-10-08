@@ -1,0 +1,135 @@
+EncodingName			"Moellendorf"
+DescriptiveName			"Moellendorf Transliteration of Manju"
+Version					"1"
+Contact					"mailto:"
+RegistrationAuthority	"Philipp Immel"
+RegistrationName		"Moellendorf Transliteration"
+Copyright				"(c)2015 Philipp Immel"
+LHSFlags				()
+RHSFlags				(ExpectsNFD GeneratesNFD) ; 
+
+LHSName  "Moellendorf"
+RHSName  "UNICODE"
+
+pass(Unicode)
+
+Define a U+0061 ; a
+Define b U+0062 ; b
+Define c U+0063 ; c
+Define d U+0064 ; d
+Define e U+0065 ; e
+Define f U+0066 ; f
+Define g U+0067 ; g
+Define h U+0068 ; h
+Define i U+0069 ; i
+Define j U+006A ; j
+Define k U+006B ; k
+Define l U+006C ; l
+Define m U+006D ; m
+Define n U+006E ; n
+Define ng U+006E U+0067 ; ng
+Define o U+006F ; o
+Define p U+0070 ; p
+Define q U+0071 ; q
+Define r U+0072 ; r
+Define s U+0073 ; s
+Define scaron U+0161 ; š LATIN SMALL LETTER S WITH CARON (precombined)
+Define scombcaron U+0073 U+030C ; š LATIN SMALL LETTER S + COMBINING CARON
+Define S U+0053 ; S
+Define t U+0074 ; t
+Define u U+0075 ; u
+Define umacron U+016B ; ū LATIN SMALL LETTER U WITH MACRON (precombined)
+Define ucombmacron U+0075 U+0304 ; ū LATIN SMALL LETTER U + COMBINING MACRON
+Define U U+0055 ; U
+Define v U+0076 ; v
+Define w U+0077 ; w
+Define x U+0078 ; x
+Define y U+0079 ; y
+Define z U+007A ; z
+Define zcaron U+017E ; ž LATIN SMALL LETTER Z WITH CARON (precombined)
+Define zcombcaron U+007A U+030C ; ž LATIN SMALL LETTER Z + COMBINING CARON
+Define Z U+005A ; Z
+
+Define apo U+0027 ; Apostrophe
+Define hyph U+002D ; HYPHEN-MINUS
+
+Define zero U+0030 ; 0
+Define one U+0031 ; 1
+Define two U+0032 ; 2
+Define three U+0033 ; 3
+Define four U+0034 ; 4
+Define five U+0035 ; 5
+Define six U+0036 ; 6
+Define seven U+0037 ; 7
+Define eight U+0038 ; 8
+Define nine U+0039 ; 9
+
+Define virgule U+002C ; , (Comma)
+Define fullstop U+002E ; . (Full stop)
+
+; VOWELS
+a > U+1820 ; MONGOLIAN_LETTER_A ;
+e > U+185D ; MONGOLIAN_LETTER_SIBE_E ;
+i > U+1873 ; MONGOLIAN_LETTER_MANCHU_I ;
+o > U+1823 ; MONGOLIAN_LETTER_O ;
+u > U+1860 ; MONGOLIAN_LETTER_SIBE_UE ;
+umacron > U+1861 ; precomposed -> MONGOLIAN_LETTER_SIBE_U ;
+ucombmacron > U+1861 ; combined -> MONGOLIAN_LETTER_SIBE_U  ;
+U > U+1861 ; MONGOLIAN_LETTER_SIBE_U ;
+
+; CONSONANTS
+n > U+1828 ; MONGOLIAN_LETTER_NA ;
+k > U+1874 ; MONGOLIAN_LETTER_MANCHU_KA ;
+g > U+1864 ; MONGOLIAN_LETTER_SIBE_GA ;
+h > U+1865 ; MONGOLIAN LETTER SIBE HA ;
+b > U+182A ; MONGOLIAN LETTER BA ;
+p > U+1866 ; MONGOLIAN LETTER SIBE PA ;
+s > U+1830 ; MONGOLIAN LETTER SA ;
+scaron > U+1867 ; precomposed -> MONGOLIAN LETTER SIBE SHA ;
+scombcaron > U+1867 ; combined -> MONGOLIAN LETTER SIBE SHA ;
+S > U+1867 ; MONGOLIAN LETTER SIBE SHA ;
+t > U+1868 ; MONGOLIAN LETTER SIBE TA ;
+d > U+1869 ; MONGOLIAN LETTER SIBE DA ;
+l > U+182F ; MONGOLIAN LETTER LA ;
+m > U+182E ; MONGOLIAN LETTER MA ;
+c > U+1834 ; MONGOLIAN LETTER CHA ;
+j > U+1835 ; MONGOLIAN LETTER JA ;
+y > U+1836 ; MONGOLIAN LETTER YA ;
+r > U+1875 ; MONGOLIAN_LETTER_MANCHU_RA ;
+f > U+1876 ; MONGOLIAN_LETTER_MANCHU_FA ;
+w > U+1838 ; MONGOLIAN LETTER WA ;
+ng > U+1829 ; MONGOLIAN LETTER ANG ;
+
+; LETTERS FOR TRANSCRIBING CHINESE WORDS
+; TRANSLITERATION SCHEME: NORMAN
+k apo > U+183A ; MONGOLIAN LETTER KA ; Before a, o.
+g apo > U+186C ; MONGOLIAN LETTER SIBE GAA ; Before a, o.
+h apo > U+186D ; MONGOLIAN LETTER SIBE HAA ; Before a, o.
+t s > U+186E ; MONGOLIAN LETTER SIBE TSA ; Before a, e, o, u.
+t s i > U+186E U+185F ; MONGOLIAN_LETTER_SIBE_TSA MONGOLIAN_LETTER_SIBE_IY; Before i.
+d z > U+186F ; MONGOLIAN LETTER SIBE ZA ; Before a, e, o, u.
+; d z i > U+ ;  ; Before i.
+zcaron > U+1870 ; precomposed -> MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
+zcombcaron > U+1870 ; combined -> MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
+Z > U+1870 ; MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
+; zcaron > U+ ;  ; Before i.
+j y > U+1877 U+1873 ; MONGOLIAN_LETTER_MANCHU_ZHA MONGOLIAN LETTER MANCHU I ; Before i.
+c y > U+1871 U+1873 ; MONGOLIAN LETTER SIBE CHA MONGOLIAN LETTER MANCHU I ; Before i.
+s y > U+1830 U+185F ; MONGOLIAN_LETTER_SA MONGOLIAN_LETTER_SIBE_IY ; Before i.
+
+; NUMBERS
+zero > U+1810 ; MONGOLIAN DIGIT ZERO
+one > U+1811 ; MONGOLIAN DIGIT ONE
+two > U+1812 ; MONGOLIAN DIGIT TWO
+three > U+1813 ; MONGOLIAN DIGIT THREE
+four > U+1814 ; MONGOLIAN DIGIT FOUR
+five > U+1815 ; MONGOLIAN DIGIT FIVE
+six > U+1816 ; MONGOLIAN DIGIT SIX
+seven > U+1817 ; MONGOLIAN DIGIT SEVEN
+eight > U+1818 ; MONGOLIAN DIGIT EIGHT
+nine > U+1819 ; MONGOLIAN DIGIT NINE
+
+; PUNCTUATION
+virgule > U+1808 ; MONGOLIAN MANCHU COMMA
+fullstop > U+1809 ; MONGOLIAN MANCHU FULL STOP
+hyph > U+202F U+200D ; NARROW NO-BREAK SPACE + ZERO WIDTH JOINER ; perhaps need to change this in future version

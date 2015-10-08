@@ -1,0 +1,127 @@
+EncodingName			"Moellendorf"
+DescriptiveName			"Moellendorf Transliteration of Manju"
+Version					"1"
+Contact					"mailto:"
+RegistrationAuthority	"Philipp Immel"
+RegistrationName		"Moellendorf Transliteration"
+Copyright				"(c)2015 Philipp Immel"
+LHSFlags				()
+RHSFlags				() ; ExpectsNFD GeneratesNFD
+
+LHSName  "Moellendorf"
+RHSName  "UNICODE"
+
+pass(Unicode)
+
+Define a U+0061 ; a
+Define b U+0062 ; b
+Define c U+0063 ; c
+Define d U+0064 ; d
+Define e U+0065 ; e
+Define f U+0066 ; f
+Define g U+0067 ; g
+Define h U+0068 ; h
+Define i U+0069 ; i
+Define j U+006A ; j
+Define k U+006B ; k
+Define l U+006C ; l
+Define m U+006D ; m
+Define n U+006E ; n
+Define ng U+006E U+0067 ; ng
+Define o U+006F ; o
+Define p U+0070 ; p
+Define q U+0071 ; q
+Define r U+0072 ; r
+Define s U+0073 ; s
+Define scaron U+0161 ; š
+Define S U+0053 ; S
+Define t U+0074 ; t
+Define u U+0075 ; u
+Define umacron U+016B ; ū
+Define U U+0055 ; U
+Define v U+0076 ; v
+Define w U+0077 ; w
+Define x U+0078 ; x
+Define y U+0079 ; y
+Define z U+007A ; z
+Define apo U+0027 ; Apostrophe
+Define typoapo U+2019 ; RIGHT SINGLE QUOTATION MARK
+Define zcaron U+017E ; ž
+Define Z U+005A ; Z
+
+Define zero U+0030 ; 0
+Define one U+0031 ; 1
+Define two U+0032 ; 2
+Define three U+0033 ; 3
+Define four U+0034 ; 4
+Define five U+0035 ; 5
+Define six U+0036 ; 6
+Define seven U+0037 ; 7
+Define eight U+0038 ; 8
+Define nine U+0039 ; 9
+
+Define virgule U+002C ; , (Comma)
+Define fullstop U+002E ; . (Full stop)
+
+; VOWELS
+a > a ;
+e > e ;
+i > i ;
+o > o ;
+u > u ;
+umacron > umacron ;
+U > umacron ;
+
+; CONSONANTS
+n > n ; MONGOLIAN_LETTER_NA ;
+k > k ; MONGOLIAN_LETTER_MANCHU_KA ;
+g > g ; MONGOLIAN_LETTER_SIBE_GA ;
+h > h ; MONGOLIAN LETTER SIBE HA ;
+b > b ; MONGOLIAN LETTER BA ;
+p > p ; MONGOLIAN LETTER SIBE PA ;
+s > s ; MONGOLIAN LETTER SA ;
+scaron > scaron ; MONGOLIAN LETTER SIBE SHA ;
+S > scaron ; MONGOLIAN LETTER SIBE SHA ;
+t > t ; MONGOLIAN LETTER SIBE TA ;
+d > d ; MONGOLIAN LETTER SIBE DA ;
+l > l ; MONGOLIAN LETTER LA ;
+m > m ; MONGOLIAN LETTER MA ;
+c > c ; MONGOLIAN LETTER CHA ;
+j > j ; MONGOLIAN LETTER JA ;
+y > y ; MONGOLIAN LETTER YA ;
+r > r ; MONGOLIAN_LETTER_MANCHU_RA ;
+f > f ; MONGOLIAN_LETTER_MANCHU_FA ;
+w > w ; MONGOLIAN LETTER WA ;
+ng > ng ; MONGOLIAN LETTER ANG ;
+
+; LETTERS FOR TRANSCRIBING CHINESE WORDS
+; TRANSLITERATION SCHEME: NORMAN
+k apo > k typoapo ; MONGOLIAN LETTER KA ; Before a, o.
+g apo > g typoapo ; MONGOLIAN LETTER SIBE GAA ; Before a, o.
+h apo > h typoapo ; MONGOLIAN LETTER SIBE HAA ; Before a, o.
+t s > t s ; MONGOLIAN LETTER SIBE TSA ; Before a, e, o, u.
+t s i > t s i ; MONGOLIAN_LETTER_SIBE_TSA MONGOLIAN_LETTER_SIBE_IY; Before i.
+d z > d z ; MONGOLIAN LETTER SIBE ZA ; Before a, e, o, u.
+; d z i > U+ ;  ; Before i.
+zcaron > zcaron ; MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
+Z > zcaron ; MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
+; zcaron > U+ ;  ; Before i.
+j y > j y ; MONGOLIAN_LETTER_MANCHU_ZHA MONGOLIAN LETTER MANCHU I ; Before i.
+c y > c y ; MONGOLIAN LETTER SIBE CHA MONGOLIAN LETTER MANCHU I ; Before i.
+s y > s y ; MONGOLIAN_LETTER_SA MONGOLIAN_LETTER_SIBE_IY ; Before i.
+
+; NUMBERS
+zero > zero ; MONGOLIAN DIGIT ZERO
+one > one ; MONGOLIAN DIGIT ONE
+two > two ; MONGOLIAN DIGIT TWO
+three > three ; MONGOLIAN DIGIT THREE
+four > four ; MONGOLIAN DIGIT FOUR
+five > five ; MONGOLIAN DIGIT FIVE
+six > six ; MONGOLIAN DIGIT SIX
+seven > seven ; MONGOLIAN DIGIT SEVEN
+eight > eight ; MONGOLIAN DIGIT EIGHT
+nine > nine ; MONGOLIAN DIGIT NINE
+
+; PUNCTUATION
+virgule > virgule ; MONGOLIAN MANCHU COMMA
+fullstop > fullstop ; MONGOLIAN MANCHU FULL STOP
