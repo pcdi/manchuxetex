@@ -1,5 +1,7 @@
 + TODO Add cyrillization support
 + TODO See if vmanchu can be restrained to \textwidth
-+ TODO Write documentation
-+ TODO definitely needs more testing
-+ TODO maybe add `UTF Manchu -> transliteration` function
++ TODO Write documentation, convert package to .dtx
++ TODO More testing
++ TODO Maybe add `UTF Manchu -> transliteration` function
++ TODO Transliteration candidates: BabelPad, 五體清文鑑, 太清, Norman, Hauer, …
++ TODO How to deal with upper case in transliteration, such as in proper names and places?
