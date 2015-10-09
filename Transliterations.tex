@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{booktabs}
+\setmainfont{Brill}
+\usepackage{manchuxetex}
+\newfontfamily\manchufont{Mongolian Baiti}
+\newfontfamily\chinesefont{STSong}
+\begin{document}
+\newcommand{\mncletter}[1]{\raisebox{.5em}{\rotatebox{-90}{\textmanchu{#1}}} & \texttt{#1}}
+\newcommand{\textchinese}[1]{{\chinesefont #1}}
+\begin{table}[htbp]
+\caption{Transcriptions of Manchu}
+\begin{center}
+\begin{tabular}{clllll}
+\toprule
+mnc & mx & mdf & haen & xmhdcd & zakh\\
+\midrule
+\mncletter{a} & \multicolumn{3}{c}{a} & а\\
+\mncletter{e} & \multicolumn{3}{c}{e} & э\\
+\mncletter{i} & \multicolumn{3}{c}{i} & и (й)\\
+\mncletter{o} & \multicolumn{3}{c}{o} & о\\
+\mncletter{u} & \multicolumn{3}{c}{u} & у\\
+\mncletter{U} & ū & ô & uu & ӯ\\
+\mncletter{n} & \multicolumn{3}{c}{n} & н (нь)\\
+\mncletter{k} & \multicolumn{3}{c}{k} & к (к̄) (къ)\\
+\mncletter{g} & \multicolumn{3}{c}{g} & г (г̄)\\
+\mncletter{h} & \multicolumn{3}{c}{h} & х (х̄)\\
+\mncletter{b} & \multicolumn{3}{c}{b} & б (бъ)\\
+\mncletter{p} & \multicolumn{3}{c}{p} & п\\
+\mncletter{s} & \multicolumn{3}{c}{s} & с (съ)\\
+\mncletter{S} & š & ś & sh & ш\\
+\mncletter{t} & \multicolumn{3}{c}{t} & т (тъ)\\
+\mncletter{d} & \multicolumn{3}{c}{d} & д\\
+\mncletter{l} & \multicolumn{3}{c}{l} & л (лъ)\\
+\mncletter{m} & \multicolumn{3}{c}{m} & м (мъ)\\
+\mncletter{c} & \multicolumn{2}{c}{c} & ch & ч\\
+\mncletter{j} & \multicolumn{2}{c}{j} & zh & чж (цзи)\\
+\mncletter{y} & \multicolumn{3}{c}{y} & я ѣ іо ю ю̄\\
+\mncletter{r} & \multicolumn{3}{c}{r} & р (ръ)\\
+\mncletter{f} & \multicolumn{3}{c}{f} & ф\\
+\mncletter{w} & \multicolumn{3}{c}{w} & в\\
+\mncletter{k'} & \multicolumn{2}{c}{k’} & kk & к̄\\
+\mncletter{g'} & \multicolumn{2}{c}{g’} & gg & г̄\\
+\mncletter{h'} &  \multicolumn{2}{c}{h’} & hh & х̄\\
+\mncletter{ts} & ts’ & z’ & c & ц\\
+\mncletter{tsi} & ts & z’ & cy & цы\\
+\mncletter{dz} & dz & z & z (-y) & цз (-ы)\\
+\mncletter{Z} & ž & ź & r & ж\\
+\mncletter{sy} & sy (\textchinese{四}) & s & sy & сы\\
+\mncletter{cy} & c’y (\textchinese{勅}) & c’i & chy & чи\\
+\mncletter{jy} & jy (\textchinese{智}) & j’i & zhy & чжи\\
+\mncletter{ng} & \multicolumn{3}{c}{ng} & нг (нъ)\\
+
+\bottomrule
+\end{tabular}
+\end{center}
+\label{default}
+\end{table}%
+
+
+\end{document}

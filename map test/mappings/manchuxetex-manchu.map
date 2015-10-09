@@ -1,17 +1,22 @@
-EncodingName			"Moellendorf"
-DescriptiveName			"Moellendorf Transliteration of Manju"
+EncodingName			"ManchuXeTeX Manchu"
+DescriptiveName		"ManchuXeTeX transliteration -> Unicode Manchu letters"
 Version					"1"
 Contact					"mailto:"
 RegistrationAuthority	"Philipp Immel"
-RegistrationName		"Moellendorf Transliteration"
+RegistrationName		"manchuxetex-manchu"
 Copyright				"(c)2015 Philipp Immel"
 LHSFlags				()
 RHSFlags				(ExpectsNFD GeneratesNFD) ; 
 
-LHSName  "Moellendorf"
+LHSName	"ManchuXeTeX-Manchu"
 RHSName  "UNICODE"
 
-pass(Unicode)
+Define apo U+0027 ; ' APOSTROPHE
+Define typoapo U+2019 ; RIGHT SINGLE QUOTATION MARK
+Define hyph U+002D ; - HYPHEN-MINUS
+
+Define virgule U+002C ; , COMMA
+Define fullstop U+002E ; . FULL STOP
 
 Define a U+0061 ; a
 Define b U+0062 ; b
@@ -20,38 +25,76 @@ Define d U+0064 ; d
 Define e U+0065 ; e
 Define f U+0066 ; f
 Define g U+0067 ; g
+Define gapo g apo ; g'
 Define h U+0068 ; h
+Define hapo h apo ; h'
 Define i U+0069 ; i
 Define j U+006A ; j
 Define k U+006B ; k
+Define kapo k apo ; k'
 Define l U+006C ; l
 Define m U+006D ; m
 Define n U+006E ; n
 Define ng U+006E U+0067 ; ng
 Define o U+006F ; o
+Define ocirc U+00F4 ; ô LATIN SMALL LETTER O WITH CIRCUMFLEX (precombined)
+Define ocombcirc U+006F U+0302 ; ô LATIN SMALL LETTER O + COMBINING CIRCUMFLEX ACCENT
 Define p U+0070 ; p
 Define q U+0071 ; q
 Define r U+0072 ; r
 Define s U+0073 ; s
+Define sacute U+015B ; ś
 Define scaron U+0161 ; š LATIN SMALL LETTER S WITH CARON (precombined)
 Define scombcaron U+0073 U+030C ; š LATIN SMALL LETTER S + COMBINING CARON
-Define S U+0053 ; S
 Define t U+0074 ; t
 Define u U+0075 ; u
 Define umacron U+016B ; ū LATIN SMALL LETTER U WITH MACRON (precombined)
 Define ucombmacron U+0075 U+0304 ; ū LATIN SMALL LETTER U + COMBINING MACRON
-Define U U+0055 ; U
 Define v U+0076 ; v
 Define w U+0077 ; w
 Define x U+0078 ; x
 Define y U+0079 ; y
 Define z U+007A ; z
+Define zacute U+017A ; ź
 Define zcaron U+017E ; ž LATIN SMALL LETTER Z WITH CARON (precombined)
 Define zcombcaron U+007A U+030C ; ž LATIN SMALL LETTER Z + COMBINING CARON
-Define Z U+005A ; Z
 
-Define apo U+0027 ; Apostrophe
-Define hyph U+002D ; HYPHEN-MINUS
+Define A U+0041 ; A
+Define B U+0042 ; B
+Define C U+0043 ; C
+Define D U+0044 ; D
+Define E U+0045 ; E
+Define F U+0046 ; F
+Define G U+0047 ; G
+Define H U+0048 ; H
+Define I U+0049 ; I
+Define J U+004A ; J
+Define K U+004B ; K
+Define L U+004C ; L
+Define M U+004D ; M
+Define N U+004E ; N
+Define O U+004F ; O
+Define Ocirc U+00D4 ; Ô LATIN CAPITAL LETTER O WITH CIRCUMFLEX (precombined)
+Define Ocombcirc U+004F U+0302 ; Ô LATIN CAPITAL LETTER O + COMBINING CIRCUMFLEX ACCENT
+Define P U+0050 ; P
+Define Q U+0051 ; Q
+Define R U+0052 ; R
+Define S U+0053 ; S
+Define Sacute U+015A ; Ś
+Define Scaron U+0160 ; Š LATIN CAPITAL LETTER S WITH CARON (precombined)
+Define Scombcaron U+0053 U+030C ; š LATIN SMALL LETTER S + COMBINING CARON
+Define T U+0054 ; T
+Define U U+0055 ; U
+Define Umacron U+016A ; Ū LATIN CAPITAL LETTER U WITH MACRON (precombined)
+Define Ucombmacron U+0055 U+0304 ; Ū LATIN CAPITAL LETTER U + COMBINING MACRON
+Define V U+0056 ; V
+Define W U+0057 ; W
+Define X U+0058 ; X
+Define Y U+0059 ; Y
+Define Z U+005A ; Z
+Define Zacute U+0179 ; Ź
+Define Zcaron U+017D ; Ž LATIN CAPITAL LETTER Z WITH CARON (precombined)
+Define Zcombcaron U+005A U+030C ; ž LATIN SMALL LETTER Z + COMBINING CARON
 
 Define zero U+0030 ; 0
 Define one U+0031 ; 1
@@ -64,8 +107,18 @@ Define seven U+0037 ; 7
 Define eight U+0038 ; 8
 Define nine U+0039 ; 9
 
-Define virgule U+002C ; , (Comma)
-Define fullstop U+002E ; . (Full stop)
+pass(Unicode)
+
+Class [VWL] = (a e i o u umacron ucombmacron A E I O U Umacron Ucombmacron) ;
+Class [LTR] = (a..z scaron scombcaron umacron ucombmacron zcaron zcombcaron A..Z Scaron Scombcaron Umacron Ucombmacron Zcaron Zcombcaron)
+Class [SIBEU] = (umacron ucombmacron U)
+Class [SIBESHA] = (scaron scombcaron S)
+Class [SIBERAA] = (zcaron zcombcaron Z)
+Class [MONGOLKA] = (kapo K)
+Class [SIBEGAA] = (gapo G)
+Class [SIBEHAA] = (hapo H)
+Class [PUNCT] = (virgule fullstop)
+Class [Digits] = (zero..nine)
 
 ; VOWELS
 a > U+1820 ; MONGOLIAN_LETTER_A ;
@@ -73,10 +126,9 @@ e > U+185D ; MONGOLIAN_LETTER_SIBE_E ;
 i > U+1873 ; MONGOLIAN_LETTER_MANCHU_I ;
 o > U+1823 ; MONGOLIAN_LETTER_O ;
 u > U+1860 ; MONGOLIAN_LETTER_SIBE_UE ;
-umacron > U+1861 ; precomposed -> MONGOLIAN_LETTER_SIBE_U ;
-ucombmacron > U+1861 ; combined -> MONGOLIAN_LETTER_SIBE_U  ;
-U > U+1861 ; MONGOLIAN_LETTER_SIBE_U ;
-
+[SIBEU] > U+1861 ; MONGOLIAN_LETTER_SIBE_U ;
+; ucombmacron > U+1861 ; combined -> MONGOLIAN_LETTER_SIBE_U  ;
+; U > U+1861 ; MONGOLIAN_LETTER_SIBE_U ;
 ; CONSONANTS
 n > U+1828 ; MONGOLIAN_LETTER_NA ;
 k > U+1874 ; MONGOLIAN_LETTER_MANCHU_KA ;
@@ -85,9 +137,9 @@ h > U+1865 ; MONGOLIAN LETTER SIBE HA ;
 b > U+182A ; MONGOLIAN LETTER BA ;
 p > U+1866 ; MONGOLIAN LETTER SIBE PA ;
 s > U+1830 ; MONGOLIAN LETTER SA ;
-scaron > U+1867 ; precomposed -> MONGOLIAN LETTER SIBE SHA ;
-scombcaron > U+1867 ; combined -> MONGOLIAN LETTER SIBE SHA ;
-S > U+1867 ; MONGOLIAN LETTER SIBE SHA ;
+[SIBESHA] > U+1867 ; MONGOLIAN LETTER SIBE SHA ;
+; scombcaron > U+1867 ; combined -> MONGOLIAN LETTER SIBE SHA ;
+; S > U+1867 ; MONGOLIAN LETTER SIBE SHA ;
 t > U+1868 ; MONGOLIAN LETTER SIBE TA ;
 d > U+1869 ; MONGOLIAN LETTER SIBE DA ;
 l > U+182F ; MONGOLIAN LETTER LA ;
@@ -99,24 +151,20 @@ r > U+1875 ; MONGOLIAN_LETTER_MANCHU_RA ;
 f > U+1876 ; MONGOLIAN_LETTER_MANCHU_FA ;
 w > U+1838 ; MONGOLIAN LETTER WA ;
 ng > U+1829 ; MONGOLIAN LETTER ANG ;
-
 ; LETTERS FOR TRANSCRIBING CHINESE WORDS
-; TRANSLITERATION SCHEME: NORMAN
-k apo > U+183A ; MONGOLIAN LETTER KA ; Before a, o.
-g apo > U+186C ; MONGOLIAN LETTER SIBE GAA ; Before a, o.
-h apo > U+186D ; MONGOLIAN LETTER SIBE HAA ; Before a, o.
+;; TRANSLITERATION SCHEME: NORMAN
+[MONGOLKA] > U+183A ; MONGOLIAN LETTER KA ; Before a, o.
+[SIBEGAA] > U+186C ; MONGOLIAN LETTER SIBE GAA ; Before a, o.
+[SIBEHAA] > U+186D ; MONGOLIAN LETTER SIBE HAA ; Before a, o.
 t s > U+186E ; MONGOLIAN LETTER SIBE TSA ; Before a, e, o, u.
 t s i > U+186E U+185F ; MONGOLIAN_LETTER_SIBE_TSA MONGOLIAN_LETTER_SIBE_IY; Before i.
-d z > U+186F ; MONGOLIAN LETTER SIBE ZA ; Before a, e, o, u.
-; d z i > U+ ;  ; Before i.
-zcaron > U+1870 ; precomposed -> MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
-zcombcaron > U+1870 ; combined -> MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
-Z > U+1870 ; MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
-; zcaron > U+ ;  ; Before i.
+d z > U+186F ; MONGOLIAN LETTER SIBE ZA ;
+[SIBERAA] > U+1870 ; MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
+; zcombcaron > U+1870 ; combined -> MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
+; Z > U+1870 ; MONGOLIAN LETTER SIBE RAA ;
 j y > U+1877 U+1873 ; MONGOLIAN_LETTER_MANCHU_ZHA MONGOLIAN LETTER MANCHU I ; Before i.
 c y > U+1871 U+1873 ; MONGOLIAN LETTER SIBE CHA MONGOLIAN LETTER MANCHU I ; Before i.
 s y > U+1830 U+185F ; MONGOLIAN_LETTER_SA MONGOLIAN_LETTER_SIBE_IY ; Before i.
-
 ; NUMBERS
 zero > U+1810 ; MONGOLIAN DIGIT ZERO
 one > U+1811 ; MONGOLIAN DIGIT ONE
@@ -128,8 +176,5 @@ six > U+1816 ; MONGOLIAN DIGIT SIX
 seven > U+1817 ; MONGOLIAN DIGIT SEVEN
 eight > U+1818 ; MONGOLIAN DIGIT EIGHT
 nine > U+1819 ; MONGOLIAN DIGIT NINE
-
 ; PUNCTUATION
-virgule > U+1808 ; MONGOLIAN MANCHU COMMA
-fullstop > U+1809 ; MONGOLIAN MANCHU FULL STOP
-hyph > U+202F U+200D ; NARROW NO-BREAK SPACE + ZERO WIDTH JOINER ; perhaps need to change this in future version, as the Unicode specification uses only U+202F for case suffixes, but fonts will not display the correct form automatically, therefore we need to work around this by using U+200D to get the normal forms for suffixes
+

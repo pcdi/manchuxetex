@@ -1,0 +1,312 @@
+##  This is the master file to generate the TECkit ManchuXeTeX font mappings 
+##     for use with XeTeX
+##  The mappings are generated with a simple perl script (makemaps.pl)
+##
+##  Conventions used:
+##  ---------------------------------------------------------------------------------
+##  Lines starting with ## are comments that don't appear in the map files
+##  
+##  Lines that don't begin with # are common to all mappings
+##  Otherwise the letters following '#' indicate specific mappings 
+##  according to vocalization modes and languages
+##  #...D -> Möllendorf
+##  #...H -> Haenisch
+##  #...X -> 新滿漢大詞典
+##  #...Z -> Захаров
+##  @M -> Möllendorf only
+##  The language codes are:
+##  M ->  Manchu
+##  T ->  Transliteration
+##  The above can be negated with #-[MTDHXZ]
+##  Lines starting with '@T[D...]' are specific to the mapping 
+##                 indicated by the two-letter key, following the conventions above
+## ----------------------------------------------------------------------------------
+@M EncodingName			"ManchuXeTeX Manchu"
+@TD EncodingName		"ManchuXeTeX Transliteration Moellendorf"
+@TH EncodingName		"ManchuXeTeX Transliteration Haenisch"
+@TX EncodingName		"ManchuXeTeX Transliteration Xin Man-Han da cidian"
+@TZ EncodingName		"ManchuXeTeX Transliteration Zakharov"
+@M DescriptiveName		"ManchuXeTeX transliteration -> Unicode Manchu letters"
+@TD DescriptiveName		"ManchuXeTeX transliteration -> Möllendorf transliteration"
+@TH DescriptiveName		"ManchuXeTeX transliteration -> Haenisch transliteration"
+@TX DescriptiveName		"ManchuXeTeX transliteration -> Xin Man-Han da cidian transliteration"
+@TZ DescriptiveName		"ManchuXeTeX transliteration -> Zakharov transliteration"
+Version					"1"
+Contact					"mailto:"
+RegistrationAuthority	"Philipp Immel"
+@M RegistrationName		"manchuxetex-manchu"
+@TD RegistrationName	"manchuxetex-trans-mdf"
+@TH RegistrationName	"manchuxetex-trans-haen"
+@TX RegistrationName	"manchuxetex-trans-xmhdcd"
+@TZ RegistrationName	"manchuxetex-trans-zakh"
+Copyright				"(c)2015 Philipp Immel"
+LHSFlags				()
+RHSFlags				(ExpectsNFD GeneratesNFD) ; 
+
+@M LHSName	"ManchuXeTeX-Manchu"
+@TD LHSName	"ManchuXeTeX-Transliteration-Moellendorf"
+@TH LHSName	"ManchuXeTeX-Transliteration-Haenisch"
+@TX LHSName	"ManchuXeTeX-Transliteration-Xin-Man-Han-da-cidian"
+@TZ LHSName	"ManchuXeTeX-Transliteration-Zakharov"
+RHSName  "UNICODE"
+
+Define apo U+0027 ; ' APOSTROPHE
+Define typoapo U+2019 ; RIGHT SINGLE QUOTATION MARK
+Define hyph U+002D ; - HYPHEN-MINUS
+
+Define virgule U+002C ; , COMMA
+Define fullstop U+002E ; . FULL STOP
+
+Define a U+0061 ; a
+Define b U+0062 ; b
+Define c U+0063 ; c
+Define d U+0064 ; d
+Define e U+0065 ; e
+Define f U+0066 ; f
+Define g U+0067 ; g
+Define gapo g apo ; g'
+Define h U+0068 ; h
+Define hapo h apo ; h'
+Define i U+0069 ; i
+Define j U+006A ; j
+Define k U+006B ; k
+Define kapo k apo ; k'
+Define l U+006C ; l
+Define m U+006D ; m
+Define n U+006E ; n
+Define ng U+006E U+0067 ; ng
+Define o U+006F ; o
+Define ocirc U+00F4 ; ô LATIN SMALL LETTER O WITH CIRCUMFLEX (precombined)
+Define ocombcirc U+006F U+0302 ; ô LATIN SMALL LETTER O + COMBINING CIRCUMFLEX ACCENT
+Define p U+0070 ; p
+Define q U+0071 ; q
+Define r U+0072 ; r
+Define s U+0073 ; s
+Define sacute U+015B ; ś
+Define scaron U+0161 ; š LATIN SMALL LETTER S WITH CARON (precombined)
+Define scombcaron U+0073 U+030C ; š LATIN SMALL LETTER S + COMBINING CARON
+Define t U+0074 ; t
+Define u U+0075 ; u
+Define umacron U+016B ; ū LATIN SMALL LETTER U WITH MACRON (precombined)
+Define ucombmacron U+0075 U+0304 ; ū LATIN SMALL LETTER U + COMBINING MACRON
+Define v U+0076 ; v
+Define w U+0077 ; w
+Define x U+0078 ; x
+Define y U+0079 ; y
+Define z U+007A ; z
+Define zacute U+017A ; ź
+Define zcaron U+017E ; ž LATIN SMALL LETTER Z WITH CARON (precombined)
+Define zcombcaron U+007A U+030C ; ž LATIN SMALL LETTER Z + COMBINING CARON
+
+Define A U+0041 ; A
+Define B U+0042 ; B
+Define C U+0043 ; C
+Define D U+0044 ; D
+Define E U+0045 ; E
+Define F U+0046 ; F
+Define G U+0047 ; G
+Define H U+0048 ; H
+Define I U+0049 ; I
+Define J U+004A ; J
+Define K U+004B ; K
+Define L U+004C ; L
+Define M U+004D ; M
+Define N U+004E ; N
+Define O U+004F ; O
+Define Ocirc U+00D4 ; Ô LATIN CAPITAL LETTER O WITH CIRCUMFLEX (precombined)
+Define Ocombcirc U+004F U+0302 ; Ô LATIN CAPITAL LETTER O + COMBINING CIRCUMFLEX ACCENT
+Define P U+0050 ; P
+Define Q U+0051 ; Q
+Define R U+0052 ; R
+Define S U+0053 ; S
+Define Sacute U+015A ; Ś
+Define Scaron U+0160 ; Š LATIN CAPITAL LETTER S WITH CARON (precombined)
+Define Scombcaron U+0053 U+030C ; š LATIN SMALL LETTER S + COMBINING CARON
+Define T U+0054 ; T
+Define U U+0055 ; U
+Define Umacron U+016A ; Ū LATIN CAPITAL LETTER U WITH MACRON (precombined)
+Define Ucombmacron U+0055 U+0304 ; Ū LATIN CAPITAL LETTER U + COMBINING MACRON
+Define V U+0056 ; V
+Define W U+0057 ; W
+Define X U+0058 ; X
+Define Y U+0059 ; Y
+Define Z U+005A ; Z
+Define Zacute U+0179 ; Ź
+Define Zcaron U+017D ; Ž LATIN CAPITAL LETTER Z WITH CARON (precombined)
+Define Zcombcaron U+005A U+030C ; ž LATIN SMALL LETTER Z + COMBINING CARON
+
+Define zero U+0030 ; 0
+Define one U+0031 ; 1
+Define two U+0032 ; 2
+Define three U+0033 ; 3
+Define four U+0034 ; 4
+Define five U+0035 ; 5
+Define six U+0036 ; 6
+Define seven U+0037 ; 7
+Define eight U+0038 ; 8
+Define nine U+0039 ; 9
+
+pass(Unicode)
+
+Class [VWL] = (a e i o u umacron ucombmacron A E I O U Umacron Ucombmacron) ;
+Class [LTR] = (a..z scaron scombcaron umacron ucombmacron zcaron zcombcaron A..Z Scaron Scombcaron Umacron Ucombmacron Zcaron Zcombcaron)
+Class [SIBEU] = (umacron ucombmacron U)
+Class [SIBESHA] = (scaron scombcaron S)
+Class [SIBERAA] = (zcaron zcombcaron Z)
+Class [MONGOLKA] = (kapo K)
+Class [SIBEGAA] = (gapo G)
+Class [SIBEHAA] = (hapo H)
+Class [PUNCT] = (virgule fullstop)
+Class [Digits] = (zero..nine)
+
+#M ; VOWELS
+#M a > U+1820 ; MONGOLIAN_LETTER_A ;
+#M e > U+185D ; MONGOLIAN_LETTER_SIBE_E ;
+#M i > U+1873 ; MONGOLIAN_LETTER_MANCHU_I ;
+#M o > U+1823 ; MONGOLIAN_LETTER_O ;
+#M u > U+1860 ; MONGOLIAN_LETTER_SIBE_UE ;
+#M [SIBEU] > U+1861 ; MONGOLIAN_LETTER_SIBE_U ;
+#M ; ucombmacron > U+1861 ; combined -> MONGOLIAN_LETTER_SIBE_U  ;
+#M ; U > U+1861 ; MONGOLIAN_LETTER_SIBE_U ;
+#M
+#M ; CONSONANTS
+#M n > U+1828 ; MONGOLIAN_LETTER_NA ;
+#M k > U+1874 ; MONGOLIAN_LETTER_MANCHU_KA ;
+#M g > U+1864 ; MONGOLIAN_LETTER_SIBE_GA ;
+#M h > U+1865 ; MONGOLIAN LETTER SIBE HA ;
+#M b > U+182A ; MONGOLIAN LETTER BA ;
+#M p > U+1866 ; MONGOLIAN LETTER SIBE PA ;
+#M s > U+1830 ; MONGOLIAN LETTER SA ;
+#M [SIBESHA] > U+1867 ; MONGOLIAN LETTER SIBE SHA ;
+#M ; scombcaron > U+1867 ; combined -> MONGOLIAN LETTER SIBE SHA ;
+#M ; S > U+1867 ; MONGOLIAN LETTER SIBE SHA ;
+#M t > U+1868 ; MONGOLIAN LETTER SIBE TA ;
+#M d > U+1869 ; MONGOLIAN LETTER SIBE DA ;
+#M l > U+182F ; MONGOLIAN LETTER LA ;
+#M m > U+182E ; MONGOLIAN LETTER MA ;
+#M c > U+1834 ; MONGOLIAN LETTER CHA ;
+#M j > U+1835 ; MONGOLIAN LETTER JA ;
+#M y > U+1836 ; MONGOLIAN LETTER YA ;
+#M r > U+1875 ; MONGOLIAN_LETTER_MANCHU_RA ;
+#M f > U+1876 ; MONGOLIAN_LETTER_MANCHU_FA ;
+#M w > U+1838 ; MONGOLIAN LETTER WA ;
+#M ng > U+1829 ; MONGOLIAN LETTER ANG ;
+#M
+#M ; LETTERS FOR TRANSCRIBING CHINESE WORDS
+#M ;; TRANSLITERATION SCHEME: NORMAN
+#M [MONGOLKA] > U+183A ; MONGOLIAN LETTER KA ; Before a, o.
+#M [SIBEGAA] > U+186C ; MONGOLIAN LETTER SIBE GAA ; Before a, o.
+#M [SIBEHAA] > U+186D ; MONGOLIAN LETTER SIBE HAA ; Before a, o.
+#M t s > U+186E ; MONGOLIAN LETTER SIBE TSA ; Before a, e, o, u.
+#M t s i > U+186E U+185F ; MONGOLIAN_LETTER_SIBE_TSA MONGOLIAN_LETTER_SIBE_IY; Before i.
+#M d z > U+186F ; MONGOLIAN LETTER SIBE ZA ;
+#M [SIBERAA] > U+1870 ; MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
+#M ; zcombcaron > U+1870 ; combined -> MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
+#M ; Z > U+1870 ; MONGOLIAN LETTER SIBE RAA ;
+#M j y > U+1877 U+1873 ; MONGOLIAN_LETTER_MANCHU_ZHA MONGOLIAN LETTER MANCHU I ; Before i.
+#M c y > U+1871 U+1873 ; MONGOLIAN LETTER SIBE CHA MONGOLIAN LETTER MANCHU I ; Before i.
+#M s y > U+1830 U+185F ; MONGOLIAN_LETTER_SA MONGOLIAN_LETTER_SIBE_IY ; Before i.
+#M
+#M ; NUMBERS
+#M zero > U+1810 ; MONGOLIAN DIGIT ZERO
+#M one > U+1811 ; MONGOLIAN DIGIT ONE
+#M two > U+1812 ; MONGOLIAN DIGIT TWO
+#M three > U+1813 ; MONGOLIAN DIGIT THREE
+#M four > U+1814 ; MONGOLIAN DIGIT FOUR
+#M five > U+1815 ; MONGOLIAN DIGIT FIVE
+#M six > U+1816 ; MONGOLIAN DIGIT SIX
+#M seven > U+1817 ; MONGOLIAN DIGIT SEVEN
+#M eight > U+1818 ; MONGOLIAN DIGIT EIGHT
+#M nine > U+1819 ; MONGOLIAN DIGIT NINE
+#M
+#M ; PUNCTUATION
+# M virgule > U+1808 ; MONGOLIAN MANCHU COMMA
+# M fullstop > U+1809 ; MONGOLIAN MANCHU FULL STOP
+# M hyph > U+202F U+200D ; NARROW NO-BREAK SPACE + ZERO WIDTH JOINER ; Perhaps we need to change this in a future version, as the Unicode specification uses only U+202F for case suffixes, but fonts will not display the correct form automatically, therefore we need to work around this by using U+200D to get the normal forms for suffixes, i. e. final forms.
+
+#T ;TRANSCRIPTION
+#T ;VOWELS
+#THDX a > a ;
+#THDX e > e ;
+#THDX i > i ;
+#THDX o > o ;
+#THDX u > u ;
+#T
+#TD [SIBEU] > umacron ;
+#TH [SIBEU] > ocirc ;
+#TX [SIBEU] > u u ;
+#T 
+#T ; CONSONANTS
+#THDX n > n ; MONGOLIAN_LETTER_NA ;
+#THDX k > k ; MONGOLIAN_LETTER_MANCHU_KA ;
+#THDX g > g ; MONGOLIAN_LETTER_SIBE_GA ;
+#THDX h > h ; MONGOLIAN LETTER SIBE HA ;
+#THDX b > b ; MONGOLIAN LETTER BA ;
+#THDX p > p ; MONGOLIAN LETTER SIBE PA ;
+#THDX s > s ; MONGOLIAN LETTER SA ;
+#THDX t > t ; MONGOLIAN LETTER SIBE TA ;
+#THDX d > d ; MONGOLIAN LETTER SIBE DA ;
+#THDX l > l ; MONGOLIAN LETTER LA ;
+#THDX m > m ; MONGOLIAN LETTER MA ;
+#THD c > c ; MONGOLIAN LETTER CHA ;
+#TX c > c h ; MONGOLIAN LETTER CHA ;
+#THD j > j ; MONGOLIAN LETTER JA ;
+#TX j > z h ; MONGOLIAN LETTER JA ;
+#THDX y > y ; MONGOLIAN LETTER YA ;
+#THDX r > r ; MONGOLIAN_LETTER_MANCHU_RA ;
+#THDX f > f ; MONGOLIAN_LETTER_MANCHU_FA ;
+#THDX w > w ; MONGOLIAN LETTER WA ;
+#THDX ng > ng ; MONGOLIAN LETTER ANG ;
+#T
+#TD [SIBESHA] > scaron ; MONGOLIAN LETTER SIBE SHA ;
+#TH [SIBESHA] > sacute ; MONGOLIAN LETTER SIBE SHA ;
+#TX [SIBESHA] > s h ; MONGOLIAN LETTER SIBE SHA ;
+#T
+#T ; LETTERS FOR TRANSCRIBING CHINESE WORDS
+#T ; TRANSLITERATION SCHEME: NORMAN
+#THD [MONGOLKA] > k typoapo ; MONGOLIAN LETTER KA ; Before a, o.
+#TX [MONGOLKA] > k k ; MONGOLIAN LETTER KA ; Before a, o.
+#THD [SIBEGAA] > g typoapo ; MONGOLIAN LETTER SIBE GAA ; Before a, o.
+#TX [SIBEGAA] > g g ; MONGOLIAN LETTER SIBE GAA ; Before a, o.
+#THD [SIBEHAA] > h typoapo ; MONGOLIAN LETTER SIBE HAA ; Before a, o.
+#TX [SIBEHAA] > h h ; MONGOLIAN LETTER SIBE HAA ; Before a, o.
+#T
+#TD t s > t s typoapo ; MONGOLIAN LETTER SIBE TSA ; Before a, e, o, u.
+#TD t s i > t s i ; MONGOLIAN_LETTER_SIBE_TSA MONGOLIAN_LETTER_SIBE_IY; Before i.
+#TD d z > d z ; MONGOLIAN LETTER SIBE ZA ; Before a, e, o, u.
+#TD [SIBERAA] > zcaron ; MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
+#TD j y > j y ; MONGOLIAN_LETTER_MANCHU_ZHA MONGOLIAN LETTER MANCHU I ; Before i.
+#TD c y > c typoapo y ; MONGOLIAN LETTER SIBE CHA MONGOLIAN LETTER MANCHU I ; Before i.
+#TD s y > s y ; MONGOLIAN_LETTER_SA MONGOLIAN_LETTER_SIBE_IY ; Before i.
+#T
+#TH t s > z typoapo ; MONGOLIAN LETTER SIBE TSA ; Before a, e, o, u.
+#TH d z > z ; MONGOLIAN LETTER SIBE ZA ; Before a, e, o, u.
+#TH [SIBERAA] > zacute ; MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
+#TH j y > j typoapo i ; MONGOLIAN_LETTER_MANCHU_ZHA MONGOLIAN LETTER MANCHU I ; Before i.
+#TH c y > c typoapo i ; MONGOLIAN LETTER SIBE CHA MONGOLIAN LETTER MANCHU I ; Before i.
+#TH s y > s i; MONGOLIAN_LETTER_SA MONGOLIAN_LETTER_SIBE_IY ; Before i.
+#T
+#TX t s > c ; MONGOLIAN LETTER SIBE TSA ; Before a, e, o, u.
+#TX t s i > c y ; MONGOLIAN_LETTER_SIBE_TSA MONGOLIAN_LETTER_SIBE_IY; Before i.
+#TX d z > z ; MONGOLIAN LETTER SIBE ZA ; Before i.
+#TX d z i > z y ; MONGOLIAN LETTER SIBE ZA ; Before a, e, o, u.
+#TX [SIBERAA] > r ; MONGOLIAN LETTER SIBE RAA ; Before a, e, o, u.
+#TX j y > z h y ; MONGOLIAN_LETTER_MANCHU_ZHA MONGOLIAN LETTER MANCHU I ; Before i.
+#TX c y > c h y typoapo y ; MONGOLIAN LETTER SIBE CHA MONGOLIAN LETTER MANCHU I ; Before i.
+#TX s y > s y ; MONGOLIAN_LETTER_SA MONGOLIAN_LETTER_SIBE_IY ; Before i.
+#T 
+#T ; NUMBERS
+#T zero > zero ; MONGOLIAN DIGIT ZERO
+#T one > one ; MONGOLIAN DIGIT ONE
+#T two > two ; MONGOLIAN DIGIT TWO
+#T three > three ; MONGOLIAN DIGIT THREE
+#T four > four ; MONGOLIAN DIGIT FOUR
+#T five > five ; MONGOLIAN DIGIT FIVE
+#T six > six ; MONGOLIAN DIGIT SIX
+#T seven > seven ; MONGOLIAN DIGIT SEVEN
+#T eight > eight ; MONGOLIAN DIGIT EIGHT
+#T nine > nine ; MONGOLIAN DIGIT NINE
+#T 
+#T ; PUNCTUATION
+#T virgule > virgule ; MONGOLIAN MANCHU COMMA
+#T fullstop > fullstop ; MONGOLIAN MANCHU FULL STOP
