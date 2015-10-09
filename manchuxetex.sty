@@ -2,13 +2,15 @@
 \ProvidesPackage{manchuxetex}
   [2015/10/06 v0.4 ArabXeTeX-like interface for Manchu]
 %
+\DeclareOption{manchu}{\def\mx@mode{manchu}}
 \DeclareOption{trans}{\def\mx@mode{trans}}
 \DeclareOption{utf}{\def\mx@mode{utf}}
 \DeclareOption*{%
 	\PackageWarning{manchuxetex}{Unknown option `\CurrentOption'}%
 }
-\ExecuteOptions{utf}
+\ExecuteOptions{manchu}
 \ProcessOptions
+\def\mx@mode@manchu{manchu}
 \def\mx@mode@trans{trans}
 \def\mx@mode@utf{utf}
 \newif\ifmx@mode@defined
@@ -27,6 +29,7 @@
 \newcommand{\SetTranslitStyle}[1]{\def\mx@trans@style{#1}}
 \newcommand{\SetTranslitConvention}[1]{\def\mx@trans@convention{#1}}
 \def\mx@trans@convention{mdf}% Möllendorf is default
+\def\utf@fontfeature{\addfontfeature{Script=mong,Language=MCH ,}}
 
 \newenvironment{manchu}[1][\mx@mode]%
 {\edef\@tempa{#1}%
@@ -37,9 +40,12 @@
 		\par\mx@trans@style%
 		\addfontfeature{Mapping=manchuxetex-trans-\mx@trans@convention}%
 	\else
+	\ifx\@tempa\mx@mode@utf%
+		\par\manchufont\utf@fontfeature%
+	\else
 		\par\manchufont%
 		\addfontfeature{Mapping=manchuxetex-\@tempa}%
-	\fi
+	\fi\fi
 \else
 	\PackageWarning{manchuxetex}{Mode `\@tempa' not defined, defaulting to `\mx@mode'}%
 	\par\manchufont%
@@ -48,16 +54,18 @@
 {\ifx\@tempa\mx@mode@trans\relax\else\relax\fi\par}% What does this do?
 %%%
 \newsavebox{\verticalmanchubox}
-\newenvironment{vmanchu}[1][]%
+\newenvironment{vmanchu}[2][\mx@mode]%
 	{% Before
 		\begin{lrbox}{\verticalmanchubox}% Content saved in a box because of the rotatebox
 			\XeTeXupwardsmode1% successive lines will be stacked upwards instead of downwards
-			\begin{minipage}{#1}%
+			\begin{minipage}{#2}%
 				\raggedright% a stylistic choice, after all
-				\par\manchufont% Font selection
-				\addfontfeature{Mapping=manchuxetex-\mx@mode}%
+				\begin{manchu}[#1]
+%				\par\manchufont% Font selection
+%				\addfontfeature{Mapping=manchuxetex-\mx@mode}%
 	}% End "before"
 	{% After
+		\end{manchu}
 		\end{minipage}%
 		\XeTeXupwardsmode0
 		\end{lrbox}{
