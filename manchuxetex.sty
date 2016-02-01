@@ -1,12 +1,33 @@
-\NeedsTeXFormat{LaTeX2e}
+%%
+%% This is file `manchuxetex.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% manchuxetex.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2015 by Philipp Immel
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3 of this license or (at your option) any later
+%% version.  The latest version of this license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesPackage{manchuxetex}
-  [2015/10/06 v0.4 ArabXeTeX-like interface for Manchu]
-%
+    [2016/02/01 v0.5 ArabXeTeX-like interface for Manchu]
 \DeclareOption{manchu}{\def\mx@mode{manchu}}
 \DeclareOption{trans}{\def\mx@mode{trans}}
 \DeclareOption{utf}{\def\mx@mode{utf}}
 \DeclareOption*{%
-	\PackageWarning{manchuxetex}{Unknown option `\CurrentOption'}%
+    \PackageWarning{manchuxetex}{Unknown option `\CurrentOption'}%
 }
 \ExecuteOptions{manchu}
 \ProcessOptions
@@ -15,82 +36,109 @@
 \def\mx@mode@utf{utf}
 \newif\ifmx@mode@defined
 \def\mx@ismode@defined#1{%
-	\ifcsname mx@mode@#1\endcsname%
-		\mx@mode@definedtrue%
-	\else
-		\mx@mode@definedfalse%
-	\fi}
+    \ifcsname mx@mode@#1\endcsname%
+        \mx@mode@definedtrue%
+    \else
+        \mx@mode@definedfalse%
+    \fi}
 \def\mx@lang{manchu}
 \RequirePackage{fontspec}
-\AtBeginDocument{\ifdefined\manchufont\relax\else
-	\PackageWarning{manchuxetex}{`\string\manchufont' is not defined!^^JI will try to load Mongolian Baiti}%
-	\newfontfamily\manchufont[Script=mong,Language=MCH ,Scale=MatchUppercase]{Mongolian Baiti}\fi}%
+\AtBeginDocument{
+    \ifdefined\manchufont
+        \relax
+    \else
+        \PackageWarning{manchuxetex}{%
+        `\string\manchufont' is not defined!^^J%
+        I will try to load Mongolian Baiti}%
+        \newfontfamily\manchufont[
+            Script=Mongolian,%
+            Language=Manchu,%
+            Scale=MatchUppercase%
+        ]{Mongolian Baiti}%
+    \fi%
+}%
 \def\mx@trans@style{\itshape}%
 \newcommand{\SetTranslitStyle}[1]{\def\mx@trans@style{#1}}
 \newcommand{\SetTranslitConvention}[1]{\def\mx@trans@convention{#1}}
-\def\mx@trans@convention{mdf}% Möllendorf is default
-\def\utf@fontfeature{\addfontfeature{Script=mong,Language=MCH ,}}
-
+\def\mx@trans@convention{mdf}
+\def\utf@fontfeature{\addfontfeature{Script=Mongolian,Language=Manchu,}}
 \newenvironment{manchu}[1][\mx@mode]%
 {\edef\@tempa{#1}%
 \def\mx@lang{manchu}%
 \mx@ismode@defined{\@tempa}%
 \ifmx@mode@defined%
-	\ifx\@tempa\mx@mode@trans%
-		\par\mx@trans@style%
-		\addfontfeature{Mapping=manchuxetex-trans-\mx@trans@convention}%
-	\else
-	\ifx\@tempa\mx@mode@utf%
-		\par\manchufont\utf@fontfeature%
-	\else
-		\par\manchufont%
-		\addfontfeature{Mapping=manchuxetex-\@tempa}%
-	\fi\fi
+    \ifx\@tempa\mx@mode@trans%
+        \par\mx@trans@style%
+        \addfontfeature{Mapping=manchuxetex-trans-\mx@trans@convention}%
+    \else
+    \ifx\@tempa\mx@mode@utf%
+        \par\manchufont\utf@fontfeature%
+    \else
+        \par\manchufont%
+        \addfontfeature{Mapping=manchuxetex-\@tempa}%
+    \fi\fi
 \else
-	\PackageWarning{manchuxetex}{Mode `\@tempa' not defined, defaulting to `\mx@mode'}%
-	\par\manchufont%
-	\addfontfeature{Mapping=manchuxetex-\mx@mode}%
+    \PackageWarning{manchuxetex}{%
+        Mode `\@tempa' not defined, defaulting to `\mx@mode'%
+    }%
+    \par\manchufont%
+    \addfontfeature{Mapping=manchuxetex-\mx@mode}%
 \fi}
-{\ifx\@tempa\mx@mode@trans\relax\else\relax\fi\par}% What does this do?
+{}%
 %%%
 \newsavebox{\verticalmanchubox}
 \newenvironment{vmanchu}[2][\mx@mode]%
-	{% Before
-		\begin{lrbox}{\verticalmanchubox}% Content saved in a box because of the rotatebox
-			\XeTeXupwardsmode1% successive lines will be stacked upwards instead of downwards
-			\begin{minipage}{#2}%
-				\raggedright% a stylistic choice, after all
-				\begin{manchu}[#1]
-%				\par\manchufont% Font selection
-%				\addfontfeature{Mapping=manchuxetex-\mx@mode}%
-	}% End "before"
-	{% After
-		\end{manchu}
-		\end{minipage}%
-		\XeTeXupwardsmode0
-		\end{lrbox}{
-			\rotatebox{-90}{
-				\usebox{\verticalmanchubox}%
-			}% End "\rotatebox"
-		}% End "\end{lrbox}"
-	}% End "after"
+    {% Before
+        \begin{lrbox}{\verticalmanchubox}%
+            \XeTeXupwardsmode1%
+            \begin{minipage}{#2}%
+                \raggedright%
+                \begin{manchu}[#1]
+    }%
+    {%
+        \end{manchu}
+        \end{minipage}%
+        \XeTeXupwardsmode0
+        \end{lrbox}{
+            \rotatebox{-90}{
+                \usebox{\verticalmanchubox}%
+            }% End "\rotatebox"
+        }% End "\end{lrbox}"
+    }% End "after"
 %%%
 \newcommand\textmanchu{\bgroup\text@manchu}
 \let\textmnc\textmanchu
 \newcommand\text@manchu[2][\mx@mode]{%
-	\edef\@tempa{#1}%
-	\def\mx@lang{manchu}%
-	\mx@ismode@defined{\@tempa}%
-	\ifmx@mode@defined%
-		\ifx\@tempa\mx@mode@trans%
-			{\mx@trans@style\addfontfeature{Mapping=manchuxetex-trans-\mx@trans@convention}\scantokens{#2\noexpand}}%
-		\else
-		\ifx\@tempa%
-			{\manchufont #2}%
-		\else
-			{\manchufont\addfontfeature{Mapping=manchuxetex-\@tempa}\scantokens{#2\noexpand}}%
-		\fi\fi
-	\else
-	\PackageWarning{manchuxetex}{Mode `\@tempa' not defined, defaulting to `\mx@mode'}%
-	{\manchufont\addfontfeature{Mapping=manchuxetex-\mx@mode}\scantokens{#2\noexpand}}%
-	\fi\egroup}
+    \edef\@tempa{#1}%
+    \def\mx@lang{manchu}%
+    \mx@ismode@defined{\@tempa}%
+    \ifmx@mode@defined%
+        \ifx\@tempa\mx@mode@trans%
+            {\mx@trans@style%
+            \addfontfeature{%
+                Mapping=manchuxetex-trans-\mx@trans@convention%
+            }%
+            \scantokens{#2\noexpand}%
+            }%
+        \else
+        \ifx\@tempa\mx@mode@utf%
+            {\manchufont%
+            \utf@fontfeature%
+            \scantokens{#2\noexpand}}%
+        \else
+            {\manchufont%
+            \addfontfeature{Mapping=manchuxetex-\@tempa}%
+            \scantokens{#2\noexpand}}%
+        \fi\fi
+    \else
+    \PackageWarning{manchuxetex}{%
+        Mode `\@tempa' not defined, defaulting to `\mx@mode'%
+    }%
+    {\manchufont%
+    \addfontfeature{Mapping=manchuxetex-\mx@mode}%
+    \scantokens{#2\noexpand}%
+    }%
+    \fi\egroup}
+\endinput
+%%
+%% End of file `manchuxetex.sty'.

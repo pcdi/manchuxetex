@@ -1,0 +1,359 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2016 by Philipp Immel
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3 of this license or (at your option) any later
+% version.  The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of
+% LaTeX version 2005/12/01 or later.
+%
+% \fi
+% \iffalse
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{manchuxetex}
+\usepackage{fancyvrb,fontspec}
+\newfontfamily\brill{Brill}
+\newfontfamily\manchufont[Script=Mongolian,Language=Manchu,Scale=1.33333]{Mongolian Baiti}
+\newfontfamily\chinesefont[Script=CJK Ideographic,]{Adobe Ming Std}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\usepackage{hyperref}
+\begin{document}
+    \DocInput{manchuxetex.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \changes{v0.5}{2015/10/10}{Second version}
+% \changes{v0.4}{2015/10/08}{Initial version}
+%
+% \GetFileInfo{\jobname.sty}
+%
+% \DoNotIndex{\#,\$,\%,\&,\@,\\,\{,\},\^,\_,\~,\ }
+% \DoNotIndex{\@ne}
+% \DoNotIndex{\advance,\begingroup,\catcode,\closein}
+% \DoNotIndex{\closeout,\day,\def,\edef,\else,\empty,\endgroup}
+%
+% \title{The \textsf{\jobname} package\thanks{This document
+%     corresponds to \textsf{\jobname}~\fileversion,
+%     dated~\filedate.}}
+% \author{Philipp Immel}
+%
+% \SetTranslitStyle{\brill\itshape}
+%
+% \maketitle
+%
+% \tableofcontents
+%
+% \section{Introduction}
+% The \textsf{\jobname} package aims at providing an easy-to-use interface for entering texts in the Manchurian script. It is, in fact, a modification of the ArabXeTeX package by François Charette, with actually very few changes.
+% 
+% I also want to thank Khaled Hosny, who pointed to |\XeTeXupwardsmode|\footnote{In a comment to a question about Manchu and Mongolian script on \TeX.StackExchange (\url{https://tex.stackexchange.com/questions/87259/manchu-and-mongolian-script\#comment188660_87264}).} and which became |\vmanchu| in this package.
+%
+% There is also the \href{http://www.ctan.org/tex-archive/language/mongolian/montex}{\textsf{montex} package} by Dr.~Oliver Corff, which also provides support for typesetting texts in Manchu.
+% 
+% \section{Description}
+%
+% \DescribeMacro{manchuxetex}
+% The package is loaded via |\usepackage|\oarg{mode}|{manchuxetex}|. The \meta{mode} argument is optional and there are currently three \meta{mode}s which can be used:
+% \begin{itemize}
+% \item |manchu| is the default and will be loaded if no \meta{mode} has been selected. In this mode, Latin letters can be typed and will be converted to Unicode-encoded Manchu letters.
+% \item |trans| is for transliteration purposes, where Latin letters can be typed in and will be converted to a transliteration of Manchu.
+% \item |utf| means that Unicode-encoded Manchu letters can be typed in and will stay that way.
+% \end{itemize}
+% As this global selection of a \meta{mode} changes it for the whole document, one is best advised to leave it as |manchu| and change it only for the respective sections, if needed. 
+%
+% \DescribeMacro{SetTranslitStyle} |\SetTranslitStyle|\marg{style}, default is |\itshape|.
+%
+% \DescribeMacro{SetTranslitConvention} |\SetTranslitConvention|\marg{convention}, default is |mdf| (Möllendorff). Options are:
+% \begin{itemize}
+% \item |mdf| for Paul Georg von Möllendorff’s transliteration
+% \item |haen| for Erich Haenisch’s transliteration 
+% \item |xmhdcd| for the transliteration used in the \emph{Xīn Mǎn--Hàn dà cídiǎn}\footnote{{\chinesefont 胡增益　主編：《新滿漢大詞典》，新疆人民出版社出版發行。} ISBN 7-228-02404-4}
+% \end{itemize}
+%
+% \DescribeMacro{textmanchu} \DescribeMacro{textmnc} The command |\textmanchu|\oarg{mode}|{}| can be used to typeset short portions of Manchu text, which will be rotated 90 degrees counterclockwise, i.\,e. which will be written in the same direction as the regular text in Latin letters. One of the \meta{mode}s can be selected to change the output. Examples:\\
+% \begin{minipage}[t]{.6\textwidth}
+% \begin{Verbatim}[gobble=6,commandchars=+\(\),]
+%     \textmanchu{abkai fulingga}
+%     \textmanchu[trans]{hUwaliyasun tob}
+%     \textmanchu[utf]{+manchufont(ᡝᠯᡥᡝ ᡨᠠᡳᡶᡳᠨ)}  
+% \end{Verbatim}
+% \end{minipage}
+% \hfill
+% \begin{minipage}[t]{.3\textwidth}
+%     \textmanchu{abkai fulingga}\\
+%     \textmanchu[trans]{hUwaliyasun tob}\\
+%     \textmanchu[utf]{ᡝᠯᡥᡝ ᡨᠠᡳᡶᡳᠨ}
+% \end{minipage}
+% \medskip\\
+% A shorthand |\textmnc| is also available.\par
+% \DescribeEnv{manchu} The |manchu| environment can be invoked with |\begin{manchu}|\oarg{mode} and is ended with |\end{manchu}| and is intended for longer passages of Manchu text, with possible line and paragraph breaks. It takes one optional argument, \meta{mode}. Example:\\
+% \begin{minipage}[t]{.45\textwidth}
+% \begin{Verbatim}[gobble=2]
+% \begin{manchu}
+%     mini sefu lama-i hUbilgan aika
+%     unenggingge oci, tacibure-be
+%     baiburakU, fucihi abka karmatame
+%     ainaha seme hUwanggiyarakU,
+%     aika taSan holonggo oci,
+%     Sajin-be eiterere hUlha kai.
+% \end{manchu}
+% \end{Verbatim}
+% \end{minipage}%
+% \hfill
+% \begin{minipage}[t]{.45\textwidth}
+% \begin{manchu}
+%     mini sefu lama-i hUbilgan aika unenggingge oci, tacibure-be baiburakU, fucihi abka karmatame ainaha seme hUwanggiyarakU, aika taSan holonggo oci, Sajin-be eiterere hUlha kai.
+% \end{manchu}
+% \end{minipage}
+% \medskip\\
+%
+% \DescribeEnv{vmanchu}
+% The |vmanchu| environment can be invoked with |\begin{vmanchu}|\oarg{mode}\marg{height} and is ended with |\end{vmanchu}| and is intended for passages of Manchu text typeset top to bottom, left to right. It takes one optional argument, \meta{mode}, and one mandatory argument \meta{height}. The \meta{height} specifies the height of the section of vertical Manchu. Example:\\
+% \begin{minipage}[t]{.45\textwidth}
+% \begin{Verbatim}[gobble=2]
+% \begin{vmanchu}{8em}
+%     mini sefu lama-i hUbilgan aika
+%     unenggingge oci, tacibure-be
+%     baiburakU, fucihi abka karmatame
+%     ainaha seme hUwanggiyarakU,
+%     aika taSan holonggo oci,
+%     Sajin-be eiterere hUlha kai.
+% \end{vmanchu}
+% \end{Verbatim}
+% \end{minipage}%
+% \hfill
+% \begin{minipage}[t]{.45\textwidth}
+% \begin{vmanchu}{8em}
+%     mini sefu lama-i hUbilgan aika unenggingge oci, tacibure-be baiburakU, fucihi abka karmatame ainaha seme hUwanggiyarakU, aika taSan holonggo oci, Sajin-be eiterere hUlha kai.
+% \end{vmanchu}
+% \end{minipage}
+% \medskip\\
+%
+% \section{Mapping tables}
+% The mapping tables are generated with a Perl script copied from the ArabXeTeX package, which was then adapted to fit the transliteration schemes for Manchu. It relies on |teckit| by SIL.
+%
+% \section{Implementation}
+%
+% \StopEventually{} %\PrintChanges\PrintIndex
+%
+%\iffalse
+%<*package>
+%\fi
+%
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesPackage{manchuxetex}
+    [2016/02/01 v0.5 ArabXeTeX-like interface for Manchu]
+%    \end{macrocode}
+% \begin{macro}{modes}
+% The different \meta{mode}s are defined and |manchu| is selected as default.
+%    \begin{macrocode}
+\DeclareOption{manchu}{\def\mx@mode{manchu}}
+\DeclareOption{trans}{\def\mx@mode{trans}}
+\DeclareOption{utf}{\def\mx@mode{utf}}
+\DeclareOption*{%
+    \PackageWarning{manchuxetex}{Unknown option `\CurrentOption'}%
+}
+\ExecuteOptions{manchu}
+\ProcessOptions
+\def\mx@mode@manchu{manchu}
+\def\mx@mode@trans{trans}
+\def\mx@mode@utf{utf}
+%    \end{macrocode}
+% Define new |if|: Check if \meta{mode} is defined.
+%    \begin{macrocode}
+\newif\ifmx@mode@defined
+\def\mx@ismode@defined#1{%
+    \ifcsname mx@mode@#1\endcsname%
+        \mx@mode@definedtrue%
+    \else
+        \mx@mode@definedfalse%
+    \fi}
+\def\mx@lang{manchu}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{font}
+% If |\manchufont| has not been defined by the user, |Mongolian Baiti| will be loaded with the correct OpenType tags for |fontspec|.
+%    \begin{macrocode}
+\RequirePackage{fontspec}
+\AtBeginDocument{
+    \ifdefined\manchufont
+        \relax
+    \else
+        \PackageWarning{manchuxetex}{%
+        `\string\manchufont' is not defined!^^J%
+        I will try to load Mongolian Baiti}%
+        \newfontfamily\manchufont[
+            Script=Mongolian,%
+            Language=Manchu,%
+            Scale=MatchUppercase%
+        ]{Mongolian Baiti}%
+    \fi%
+}%
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{transliteration}
+% Commands for changing the transliteration scheme and style, default is Möllendorff (|mdf|). |\utf@fontfeature| sets the correct OTF options if one uses the \meta{mode} |manchu| and inputs UTF encoded Manchu letters.
+%    \begin{macrocode}
+\def\mx@trans@style{\itshape}%
+\newcommand{\SetTranslitStyle}[1]{\def\mx@trans@style{#1}}
+\newcommand{\SetTranslitConvention}[1]{\def\mx@trans@convention{#1}}
+\def\mx@trans@convention{mdf}
+\def\utf@fontfeature{\addfontfeature{Script=Mongolian,Language=Manchu,}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{environment}{manchu}
+% The |manchu| environment takes one optional argument: \meta{mode}.
+%    \begin{macrocode}
+\newenvironment{manchu}[1][\mx@mode]%
+%    \end{macrocode}
+% Save the given \meta{mode} in the temporary variable |\@tempa| and check whether \meta{mode} is defined.
+%    \begin{macrocode}
+{\edef\@tempa{#1}%
+\def\mx@lang{manchu}%
+\mx@ismode@defined{\@tempa}%
+\ifmx@mode@defined%
+%    \end{macrocode}
+% If it is |trans|, use the preset transliteration convention.
+%    \begin{macrocode}
+    \ifx\@tempa\mx@mode@trans%
+        \par\mx@trans@style%
+        \addfontfeature{Mapping=manchuxetex-trans-\mx@trans@convention}%
+%    \end{macrocode}
+% If it is |utf|, switch to |\manchufont| and use the |\utf@fontfeature|s.
+%    \begin{macrocode}
+    \else
+    \ifx\@tempa\mx@mode@utf%
+        \par\manchufont\utf@fontfeature%
+%    \end{macrocode}
+% If it is neither, switch to |\manchufont| and use the given \meta{mode}.
+%    \begin{macrocode}
+    \else
+        \par\manchufont%
+        \addfontfeature{Mapping=manchuxetex-\@tempa}%
+    \fi\fi
+%    \end{macrocode}
+% If \meta{mode} is not defined, print a warning and default to the default \meta{mode}.
+%    \begin{macrocode}
+\else
+    \PackageWarning{manchuxetex}{%
+        Mode `\@tempa' not defined, defaulting to `\mx@mode'%
+    }%
+    \par\manchufont%
+    \addfontfeature{Mapping=manchuxetex-\mx@mode}%
+\fi}
+{}%
+%    \end{macrocode}
+% \end{environment}
+%%%
+% \begin{environment}{vmanchu}
+% Define a box for later use.
+%    \begin{macrocode}
+\newsavebox{\verticalmanchubox}
+%    \end{macrocode}
+% There are two parameters, the first (optional) defaults to |\mx@mode|, the second is mandatory.
+%    \begin{macrocode}
+\newenvironment{vmanchu}[2][\mx@mode]%
+%    \end{macrocode}
+% The content needs to be saved in a box because |\rotatebox| cannot be split into the \textit{before} and \textit{after} parts of the |\newenvironment| because it would lead to unbalanced curly braces.  
+%    \begin{macrocode}
+    {% Before
+        \begin{lrbox}{\verticalmanchubox}%
+%    \end{macrocode}
+% As we will be in a |\rotatebox{-90}|, successive lines need to be stacked upwards instead of downwards to yield top-to-bottom, left-to-right columns as are standard in written Manchu. 
+%    \begin{macrocode}
+            \XeTeXupwardsmode1%
+%    \end{macrocode}
+% This parameter, normally defining the \meta{width} of a |\minipage|, will now define the \meta{height} of the |vmanchu| section, as it will also be rotated -90 degrees.
+%    \begin{macrocode}
+            \begin{minipage}{#2}%
+%    \end{macrocode}
+% Because there is no hyphenation in Manchu, we need to set |\raggedright| to avoid possible very large inter-word spaces.
+%    \begin{macrocode}
+                \raggedright%
+                \begin{manchu}[#1]
+    }%
+    {%
+        \end{manchu}
+        \end{minipage}%
+        \XeTeXupwardsmode0
+        \end{lrbox}{
+            \rotatebox{-90}{
+                \usebox{\verticalmanchubox}%
+            }% End "\rotatebox"
+        }% End "\end{lrbox}"
+    }% End "after"
+%    \end{macrocode}
+% \end{environment}
+%%%
+% \begin{macro}{\textmanchu}
+% \begin{macro}{\textmnc}
+% The |\textmanchu| command takes two arguments, the first is optional and defines the \meta{mode}, the second is mandatory and is the actual Manchu text. Its alias is |\textmnc|.
+%    \begin{macrocode}
+\newcommand\textmanchu{\bgroup\text@manchu}
+\let\textmnc\textmanchu
+\newcommand\text@manchu[2][\mx@mode]{%
+%    \end{macrocode}
+% Save the given \meta{mode} in the temporary variable |\@tempa| and check whether \meta{mode} is defined.
+%    \begin{macrocode}
+    \edef\@tempa{#1}%
+    \def\mx@lang{manchu}%
+    \mx@ismode@defined{\@tempa}%
+    \ifmx@mode@defined%
+%    \end{macrocode}
+% If it is |trans|, use the set transliteration convention.
+%    \begin{macrocode}
+        \ifx\@tempa\mx@mode@trans%
+            {\mx@trans@style%
+            \addfontfeature{%
+                Mapping=manchuxetex-trans-\mx@trans@convention%
+            }%
+            \scantokens{#2\noexpand}%
+            }%
+%    \end{macrocode}
+% If it is |utf|, switch to |\manchufont| and use the |\utf@fontfeature|s.
+%    \begin{macrocode}
+        \else
+        \ifx\@tempa\mx@mode@utf%
+            {\manchufont%
+            \utf@fontfeature%
+            \scantokens{#2\noexpand}}%
+%    \end{macrocode}
+% If it is neither, switch to |\manchufont| and use the given \meta{mode}.
+%    \begin{macrocode}
+        \else
+            {\manchufont%
+            \addfontfeature{Mapping=manchuxetex-\@tempa}%
+            \scantokens{#2\noexpand}}%
+        \fi\fi
+%    \end{macrocode}
+% If \meta{mode} is not defined, print a warning and default to the default \meta{mode}.
+%    \begin{macrocode}
+    \else
+    \PackageWarning{manchuxetex}{%
+        Mode `\@tempa' not defined, defaulting to `\mx@mode'%
+    }%
+    {\manchufont%
+    \addfontfeature{Mapping=manchuxetex-\mx@mode}%
+    \scantokens{#2\noexpand}%
+    }%
+    \fi\egroup}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+%\iffalse
+%</package>
+%\fi
+%
+% \Finale
