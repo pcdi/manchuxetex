@@ -1,5 +1,5 @@
 - [ ] Add cyrillization support
-+ TODO See if vmanchu can be restrained to \textwidth
+- [ ] See if vmanchu can be restrained to \textwidth
 - [x] Write documentation, convert package to .dtx
 - [ ] More testing
 - [ ] Maybe add `UTF Manchu -> transliteration` function
