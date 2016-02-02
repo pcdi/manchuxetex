@@ -71,7 +71,44 @@
 % \end{itemize}
 % As this global selection of a \meta{mode} changes it for the whole document, one is best advised to leave it as |manchu| and change it only for the respective sections, if needed. 
 %
-% \DescribeMacro{SetTranslitStyle} |\SetTranslitStyle|\marg{style}, default is |\itshape|.
+% \DescribeMacro{manchufont} The font to be used to typeset Manchu text can be defined with the regular \textsf{fontspec} commands for font selection, that is |\newfontfamily\manchufont|\oarg{font options}\marg{font name}. The selected font \emph{must} be Unicode-compliant! The default font is “Mongolian Baiti” by Microsoft:
+% \begin{Verbatim}[gobble=2]
+% \newfontfamily\manchufont[
+%     Script=Mongolian,%
+%     Language=Manchu,%
+%     Scale=MatchUppercase%
+% ]{Mongolian Baiti}%
+% \end{Verbatim}
+% Examples for different fonts:
+% \let\oldmanchufont\manchufont
+% \newcommand{\manchufonttest}[1]{
+% \newfontfamily\manchufont[
+%     Script=Mongolian,%
+%     Language=Manchu,%
+%     Scale=1.2%
+% ]{#1}%
+% \item #1: \textmanchu{tongki fuka sindaha hergen i dangse}}
+% \begin{itemize}
+% \manchufonttest{Daicing Bible}
+% \manchufonttest{Daicing Harmony}
+% \manchufonttest{Daicing Round}
+% \manchufonttest{Daicing White}
+% \manchufonttest{Daicing Xiaokai}
+% \newfontfamily\manchufont[
+%     Script=Mongolian,%
+%     Language=Manchu,%
+%     Scale=1%
+% ]{Noto Sans Mongolian}%
+% \item Noto Sans Mongolian (version 1{.}4 unhinted), even though Google claims\footnote{\url{https://www.google.com/get/noto/\#sans-mong}} that it covers Manchu as well as Mongolian, contains errors regarding the correct glyph selection for consonants according to the following vowel: \textmnc{ta te ti to tu tU}.
+% \item On a side note, Menksoft’s fonts do not work as they rely on Menksoft’s Mongolian IME.
+% \end{itemize}
+% \let\manchufont\oldmanchufont
+%
+% \DescribeMacro{SetTranslitStyle} |\SetTranslitStyle|\marg{style}, sets the styling for transliterations, the default is |\itshape|. In this documentation, for example, I have set it to the font “Brill italic”, which can be easily achieved with the following commands:
+% \begin{Verbatim}[gobble=2]
+% \newfontfamily\brill{Brill}
+% \SetTranslitStyle{\brill\itshape}
+% \end{Verbatim}
 %
 % \DescribeMacro{SetTranslitConvention} |\SetTranslitConvention|\marg{convention}, default is |mdf| (Möllendorff). Options are:
 % \begin{itemize}
@@ -85,7 +122,7 @@
 % \begin{Verbatim}[gobble=6,commandchars=+\(\),]
 %     \textmanchu{abkai fulingga}
 %     \textmanchu[trans]{hUwaliyasun tob}
-%     \textmanchu[utf]{+manchufont(ᡝᠯᡥᡝ ᡨᠠᡳᡶᡳᠨ)}  
+%     \textmanchu[utf]{(+manchufont()ᡝᠯᡥᡝ ᡨᠠᡳᡶᡳᠨ)}  
 % \end{Verbatim}
 % \end{minipage}
 % \hfill
