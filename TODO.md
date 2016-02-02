@@ -8,3 +8,5 @@
 - [ ] Expand `README.md`
 - [ ] See if spacing in `vmanchu` can be improved to reduce “raggedness”
 - [ ] Support whole pages/documents typeset in either vertical or horizontal Manchu
+- [ ] Check compatibility with interlinear glossing
+- [ ] Check compatibility with critical editions
