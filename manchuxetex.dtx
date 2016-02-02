@@ -117,8 +117,9 @@
 % \item |xmhdcd| for the transliteration used in the \emph{Xīn Mǎn--Hàn dà cídiǎn}\footnote{{\chinesefont 胡增益　主編：《新滿漢大詞典》，新疆人民出版社出版發行。} ISBN 7-228-02404-4}
 % \end{itemize}
 %
-% \DescribeMacro{textmanchu} \DescribeMacro{textmnc} The command |\textmanchu|\oarg{mode}|{}| can be used to typeset short portions of Manchu text, which will be rotated 90 degrees counterclockwise, i.\,e. which will be written in the same direction as the regular text in Latin letters. One of the \meta{mode}s can be selected to change the output. Examples:\\
-% \begin{minipage}[t]{.6\textwidth}
+% \DescribeMacro{textmanchu} \DescribeMacro{textmnc} The command |\textmanchu|\oarg{mode}|{}| can be used to typeset short portions of Manchu text, which will be rotated 90 degrees counterclockwise, i.\,e. which will be written in the same direction as the regular text in Latin letters. One of the \meta{mode}s can be selected to change the output. Examples:
+%
+% \noindent\begin{minipage}[t]{.6\textwidth}
 % \begin{Verbatim}[gobble=6,commandchars=+\(\),]
 %     \textmanchu{abkai fulingga}
 %     \textmanchu[trans]{hUwaliyasun tob}
@@ -133,8 +134,9 @@
 % \end{minipage}
 % \medskip\\
 % A shorthand |\textmnc| is also available.\par
-% \DescribeEnv{manchu} The |manchu| environment can be invoked with |\begin{manchu}|\oarg{mode} and is ended with |\end{manchu}| and is intended for longer passages of Manchu text, with possible line and paragraph breaks. It takes one optional argument, \meta{mode}. Example:\\
-% \begin{minipage}[t]{.45\textwidth}
+% \DescribeEnv{manchu} The |manchu| environment can be invoked with |\begin{manchu}|\oarg{mode} and is ended with |\end{manchu}| and is intended for longer passages of Manchu text, with possible line and paragraph breaks. It takes one optional argument, \meta{mode}. Example:
+%
+% \noindent\begin{minipage}[t]{.45\textwidth}
 % \begin{Verbatim}[gobble=2]
 % \begin{manchu}
 %     mini sefu lama-i hUbilgan aika
@@ -155,8 +157,9 @@
 % \medskip\\
 %
 % \DescribeEnv{vmanchu}
-% The |vmanchu| environment can be invoked with |\begin{vmanchu}|\oarg{mode}\marg{height} and is ended with |\end{vmanchu}| and is intended for passages of Manchu text typeset top to bottom, left to right. It takes one optional argument, \meta{mode}, and one mandatory argument \meta{height}. The \meta{height} specifies the height of the section of vertical Manchu. Example:\\
-% \begin{minipage}[t]{.45\textwidth}
+% The |vmanchu| environment can be invoked with |\begin{vmanchu}|\oarg{mode}\marg{height} and is ended with |\end{vmanchu}| and is intended for passages of Manchu text typeset top to bottom, left to right. It takes one optional argument, \meta{mode}, and one mandatory argument \meta{height}. The \meta{height} specifies the height of the section of vertical Manchu. Example:
+%
+% \noindent\begin{minipage}[t]{.45\textwidth}
 % \begin{Verbatim}[gobble=2]
 % \begin{vmanchu}{8em}
 %     mini sefu lama-i hUbilgan aika
@@ -177,7 +180,7 @@
 % \medskip\\
 %
 % \section{Mapping tables}
-% The mapping tables are generated with a Perl script copied from the ArabXeTeX package, which was then adapted to fit the transliteration schemes for Manchu. It relies on |teckit| by SIL.
+% The mapping tables are generated with a Perl script copied from the ArabXeTeX package, which was then adapted to fit the transliteration schemes for Manchu. It relies on \textsf{teckit} by SIL.
 %
 % \section{Implementation}
 %
